@@ -39,10 +39,9 @@ function footballPoints(wins, ties) {
 (1 - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/max)
 (2 - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) */
 function highestCount(numbers) {
-  let n = [];
   let count = [];
   // Aprendi na documentação como extrair o maior número.
-  n = Math.max(...numbers);
+  let n = Math.max(...numbers);
   // Descobri que pra fazer o filter funcionar deveria utilizar uma função (?)
   function comp(value) {
     return value === n;
@@ -53,6 +52,7 @@ function highestCount(numbers) {
 }
 
 // Desafio 7
+// Para resolver essa questão foi necessário ver a documentação da função Math.abs() no link https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
 function catAndMouse(mouse, cat1, cat2) {
   let result = '';
   let disCat1 = cat1 - mouse;
@@ -70,16 +70,38 @@ function catAndMouse(mouse, cat1, cat2) {
 }
 
 // Desafio 8
-function fizzBuzz() {
-  // seu código aqui
+function fizzBuzz(num) {
+  let result = [];
+  for (let i in num) {
+    if (num[i] % 3 === 0 && num[i] % 5 === 0) {
+      result.push('fizzBuzz');
+    } else if (num[i] % 3 === 0) {
+      result.push('fizz');
+    } else if (num[i] % 5 === 0) {
+      result.push('buzz');
+    } else {
+      result.push('bug!');
+    }
+  }
+  return result;
 }
 
 // Desafio 9
-function encode() {
-  // seu código aqui
+function encode(speak) {
+  let coded = speak.replace(/a/g, 1)
+    .replace(/e/g, 2)
+    .replace(/i/g, 3)
+    .replace(/o/g, 4)
+    .replace(/u/g, 5);
+  return coded;
 }
-function decode() {
-  // seu código aqui
+function decode(coded) {
+  let speak = coded.replace(/1/g, 'a')
+    .replace(/2/g, 'e')
+    .replace(/3/g, 'i')
+    .replace(/4/g, 'o')
+    .replace(/5/g, 'u');
+  return speak;
 }
 
 module.exports = {
