@@ -17,8 +17,7 @@ function calcArea(base, height) {
 // Desafio 3
 /* Consegui resolver pesquisando aqui: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/split */
 function splitSentence(phrase) {
-  const result = phrase.split(' ');
-  return result;
+  return phrase.split(' ');
 }
 
 // Desafio 4
@@ -70,23 +69,30 @@ function catAndMouse(mouse, cat1, cat2) {
 }
 
 // Desafio 8
+// foi necessário ver a documentação do for of no MDN para resolução da questão.
+// foi necessário conferir a documentação do lint para entender o motivo de erros no lint.
+function Buzzer(i, result) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    result.push('fizzBuzz');
+  } else if (i % 3 === 0) {
+    result.push('fizz');
+  } else if (i % 5 === 0) {
+    result.push('buzz');
+  } else {
+    result.push('bug!');
+  }
+}
+
 function fizzBuzz(num) {
   let result = [];
-  for (let i in num) {
-    if (num[i] % 3 === 0 && num[i] % 5 === 0) {
-      result.push('fizzBuzz');
-    } else if (num[i] % 3 === 0) {
-      result.push('fizz');
-    } else if (num[i] % 5 === 0) {
-      result.push('buzz');
-    } else {
-      result.push('bug!');
-    }
+  for (let i of num) {
+    Buzzer(i, result);
   }
   return result;
 }
 
 // Desafio 9
+// foi necessario conferir a documentação do .replace no MDN: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/replace
 function encode(speak) {
   let coded = speak.replace(/a/g, 1)
     .replace(/e/g, 2)
