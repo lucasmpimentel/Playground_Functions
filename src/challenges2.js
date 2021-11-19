@@ -17,26 +17,45 @@ function techList(techs, name) {
 }
 
 // Desafio 11
-function generatePhoneNumber(/*numbers*/) {
-  /*let counts;
-  let result = '';
+function counterKeys(count, i) {
+  if (Object.keys(count).includes(i.toString())) {
+    count[i] += 1;
+  } else {
+    count[i] = 1;
+  }
+}
+function errorStatus(i, count, result, error) {
+  if (i < 0 || i > 9 || count[i] > 2) {
+    result = 'não é possível gerar um número de telefone com esses valores';
+    error = true;
+  }
+  return { result, error };
+}
+function resultStatusOk(numbers, result) {
+  let numString = numbers.join('');
+  result = `(${numString.slice(0, 2)}) ${numString.slice(2, 7)}-${numString.slice(7, 11)}`;
+  return result;
+}
+function loopFunction(numbers, count, result, error) {
+  for (let i of numbers) {
+    counterKeys(count, i);
+    ({ result, error } = errorStatus(i, count, result, error));
+    if (error === false) {
+      result = resultStatusOk(numbers, result);
+    }
+  }
+  return result;
+}
+function generatePhoneNumber(numbers) {
+  let count = {};
+  let result;
+  let error = false;
   if (numbers.length !== 11) {
     result = 'Array com tamanho incorreto.';
   } else {
-    for (let i = 0; i < numbers.length; i += 1) {
-      let counter = 0
-      let repeat
-      if (numbers[i] === numbers[counter]) {
-        repeat += 1;
-      } 
-
-      
-      if (numbers[ii] < 0 || numbers[ii] > 9) {
-      result = 'não é possível criar um número de telefone com esses valores'
-    }
-    }
+    result = loopFunction(numbers, count, result, error);
   }
-  return result*/
+  return result;
 }
 
 // Desafio 12
@@ -63,8 +82,17 @@ function triangleCheck(lineA, lineB, lineC) {
 }
 
 // Desafio 13
-function hydrate() {
-  // seu código aqui
+function hydrate(/* drinks */) {
+  /* let orders = drinks.match(/\d+/g);
+  orders = orders.reduce(orders)
+  let cups = 1
+  let result;
+  if(cups > 1){
+    result = `${cups} copos de água`
+  } else {
+    result = `${cups} copo de água`;
+  }
+  return typeof(orders); */
 }
 
 module.exports = {
